@@ -4,51 +4,40 @@ A fullstack web app that extracts and displays metadata (title, description, ima
 
 > 🧠 This project was created as part of a junior developer home assignment, showcasing backend and frontend skills, modular architecture, and secure design.
 
+
+---
+
+## 📚 Table of Contents
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation & Running Locally](#installation--running-locally)
+- [Testing](#testing)
+- [Design Decisions & Trade-offs](#design-decisions--trade-offs)
+- [Security Considerations](#security-considerations)
+- [Deployment](#deployment)
+- [Screenshots](#screenshots)
+
 ---
 
 ##  Features
 
-###  Frontend (React + Material UI)
-- Responsive form to input up to 4 URLs
-- Submits URLs and displays metadata: title, description, image
-- Styled using Material UI components
-- Displays metadata in dynamic cards
-- Includes Reset button to clear the form and results
-- Handles Enter key for form submission
-- Error messages displayed clearly on failure
+### 🎨 Frontend (React + Material UI)
+- Input form for up to 4 URLs
+- Displays fetched metadata in dynamic cards (title, description, image)
+- Reset button to clear form and results
+- Handles Enter key submission
+- Clear error messages for invalid input or failed fetch
+- Custom theme aligned with the MetaFetch branding (logo colors, typography, buttons)
+- Responsive and modern UI using MUI components
 
-###  Backend (Node.js + Express)
-- Modular architecture: Controller, Service, Fetcher layers
-- Metadata extraction using HTML parsing with Regular Expressions
+### ⚙️ Backend (Node.js + Express)
+- Clean modular architecture: `Controller → Service → Fetcher`
+- Metadata extraction using HTML parsing (RegEx)
 - Uses Axios to fetch page content
-- Validates input on the server
-- Returns metadata for each URL or error message if failed
-- **Rate Limiting:** 5 requests per second
-- **Security:** with Helmet and CORS
-
----
-##  Testing
-
-### Backend (Supertest)
-
-✅ Valid URL returns title
-
-✅ Invalid URL returns error
-
-✅ Empty URL list returns 400
-
-✅ Rate limiting test returns 429 after 5 rapid requests
-
-✅ Helmet headers present in response
-
-### Frontend (React Testing Library + Chai)
-✅ Renders form and submit button
-
-✅ Shows error message on invalid URL
-
-✅ Displays metadata card on valid URL
-
-✅ Resets form correctly
+- Validates input on server side
+- Returns metadata or error per URL
+- **Rate limiting** (5 requests/sec)
+- **Security** hardening with Helmet & CORS
 
 ---
 
@@ -68,7 +57,9 @@ A fullstack web app that extracts and displays metadata (title, description, ima
 git clone https://github.com/CohenNaama/MetaFetch.git
 cd MetaFetch
 ```
+
 ### 2. Install dependencies
+
 ###  Backend:
 ```bash
 cd server
@@ -95,21 +86,50 @@ npm start
 
 http://localhost:3000
 
-## 🧠  Design Decisions & Trade-offs
+---
+##  Testing
+
+### Backend (Supertest)
+
+✅ Valid URL returns title
+
+✅ Invalid URL returns error
+
+✅ Empty URL list returns 400
+
+✅ Rate limit test (429 on 6th request)
+
+✅ Helmet security headers confirmed
+
+### Frontend (React Testing Library + Chai)
+
+✅ Form renders with input and buttons
+
+✅ Shows error message on invalid URL
+
+✅ Displays metadata card on valid URL
+
+✅ Resets form correctly
+
+---
+
+##  Design Decisions & Trade-offs
 
 - Used a clean modular backend architecture (Controller → Service → Fetcher)
 
-- Used direct HTML parsing with RegEx instead of heavy scraping libs
+- Avoided heavy scraping libs — used lightweight RegEx for simplicity
 
-- Material UI for fast, consistent UI design
+- Used Material UI with a custom theme for consistent design
 
-- Clear separation of concerns in React components
+- No global state manager – state managed locally for clarity
+  
+- Limited to 4 URLs for better UI and rate control
 
-- Prioritized user experience and error handling
+---
 
-## 🔒 Security Considerations
+##  Security Considerations
 
-- Rate limiting to mitigate abuse
+- Rate limiting to prevent abuse
 
 - Helmet for setting secure HTTP headers
 
@@ -119,7 +139,19 @@ http://localhost:3000
 
 ---
 
-## 🖼️ Screenshots
+##  Deployment 
+
+> 🚧 *This feature is planned but not yet deployed.*
+
+MetaFetch is currently running locally but is designed for easy deployment on platforms such as Heroku or Render.
+
+- Backend and frontend are fully separated
+- Environment-ready structure with clear start scripts
+- Easily adaptable for cloud hosting with minor config adjustments
+  
+---
+  
+##  Screenshots
 
 Here is a preview of the MetaFetch app in action:
 
