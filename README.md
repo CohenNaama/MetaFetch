@@ -2,12 +2,12 @@
 
 A fullstack web app that extracts and displays metadata (title, description, image) from a list of URLs.
 
-> 🧠 This project was created as part of a junior developer home assignment, showcasing backend and frontend skills, modular architecture, and secure design.
+>  This project was created as part of a junior developer home assignment, showcasing backend and frontend skills, modular architecture, and secure design.
 
 
 ---
 
-## 📚 Table of Contents
+##  Table of Contents
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation & Running Locally](#installation--running-locally)
@@ -21,7 +21,7 @@ A fullstack web app that extracts and displays metadata (title, description, ima
 
 ##  Features
 
-### 🎨 Frontend (React + Material UI)
+###  Frontend (React + Material UI)
 - Input form for up to 4 URLs
 - Displays fetched metadata in dynamic cards (title, description, image)
 - Reset button to clear form and results
@@ -30,7 +30,7 @@ A fullstack web app that extracts and displays metadata (title, description, ima
 - Custom theme aligned with the MetaFetch branding (logo colors, typography, buttons)
 - Responsive and modern UI using MUI components
 
-### ⚙️ Backend (Node.js + Express)
+###  Backend (Node.js + Express)
 - Clean modular architecture: `Controller → Service → Fetcher`
 - Metadata extraction using HTML parsing (RegEx)
 - Uses Axios to fetch page content
