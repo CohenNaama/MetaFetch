@@ -1,5 +1,6 @@
 import React from 'react';
 import UrlForm from './components/UrlForm';
+import Header from './components/Header';
 import { CssBaseline } from '@mui/material';
 
 /*
@@ -12,6 +13,7 @@ function App() {
   return (
     <div>
       <CssBaseline />
+      <Header/>
       <UrlForm />
     </div>
   );

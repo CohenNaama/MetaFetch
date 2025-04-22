@@ -45,7 +45,7 @@ A fullstack web app that extracts and displays metadata (title, description, ima
 
 - **Frontend:** React • Material UI • Axios
 - **Backend:** Node.js • Express • Axios
-- **Testing:** Supertest • React Testing Library • Chai
+- **Testing:** Supertest • React Testing Library • Jest
 - **Security:** Helmet • CORS • express-rate-limit
 
 ---
@@ -101,7 +101,7 @@ http://localhost:3000
 
 ✅ Helmet security headers confirmed
 
-### Frontend (React Testing Library + Chai)
+### Frontend (React Testing Library + Jest)
 
 ✅ Form renders with input and buttons
 
@@ -158,6 +158,3 @@ Here is a preview of the MetaFetch app in action:
 ![MetaFetch Screenshot](https://github.com/user-attachments/assets/4c7d3d54-59e9-4b6a-8072-02cddad9e300)
 
 ---
-
-
-

@@ -8,28 +8,30 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(helmet()); // Security middleware to protect against common vulnerabilities
-app.use(cors());   // Enable Cross-Origin Resource Sharing (CORS)
+app.use(helmet());
+app.use(cors()); // Enable Cross-Origin Resource Sharing (CORS)
 app.use(express.json()); // Parse incoming JSON requests
 
 // Rate Limiting
 const limiter = rateLimit({
   windowMs: 1000, // 1 second
-  max: 5 // Limit each IP to 5 requests per second
+  max: 5, // limit each IP to 5 requests per second
 });
-app.use(limiter); // Apply rate limiting to all requests
+
+if (process.env.NODE_ENV !== 'test') {
+  app.use(limiter); // Apply rate limiter only if NOT in test mode
+}
 
 // Controller setup
 const controller = new MetadataController();
 
-/*
- * POST /fetch-metadata
- * 
- * Endpoint to fetch metadata from a list of URLs.
- */
 app.post('/fetch-metadata', controller.fetchMetadata.bind(controller));
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// Conditionally start the server
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
+
+module.exports = app;
