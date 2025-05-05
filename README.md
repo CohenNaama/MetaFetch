@@ -1,6 +1,10 @@
 # 🌐 MetaFetch
 
-A fullstack web app that extracts and displays metadata (title, description, image) from a list of URLs.
+> 🔗 **Live Demo:** [https://metafetch-zeta.vercel.app](https://metafetch-zeta.vercel.app)
+
+
+ MetaFetch is a fullstack web application that extracts and displays metadata (title, description, image) from a list of URLs in real time.
+
 
 >  This project was created as part of a junior developer home assignment, showcasing backend and frontend skills, modular architecture, and secure design.
 
@@ -38,6 +42,8 @@ A fullstack web app that extracts and displays metadata (title, description, ima
 - Returns metadata or error per URL
 - **Rate limiting** (5 requests/sec)
 - **Security** hardening with Helmet & CORS
+- Deployed as an independent cloud API using Render
+
 
 ---
 
@@ -47,6 +53,8 @@ A fullstack web app that extracts and displays metadata (title, description, ima
 - **Backend:** Node.js • Express • Axios
 - **Testing:** Supertest • React Testing Library • Jest
 - **Security:** Helmet • CORS • express-rate-limit
+- **Deployment & Hosting:** Vercel (Frontend) • Render (Backend) • GitHub (CI/CD)
+
 
 ---
 
@@ -73,7 +81,6 @@ npm install
 ### 3. Run the project
 ### Start backend:
 ```bash
-
 cd server
 npm start
 ```
@@ -82,9 +89,10 @@ npm start
 cd client
 npm start
 ```
-###  App should be running at:
+### App should be running at:
+- Local: http://localhost:3000
+- Live: [https://metafetch-zeta.vercel.app](https://metafetch-zeta.vercel.app)
 
-http://localhost:3000
 
 ---
 ##  Testing
@@ -139,15 +147,17 @@ http://localhost:3000
 
 ---
 
-##  Deployment 
+## Deployment
 
-> 🚧 *This feature is planned but not yet deployed.*
+MetaFetch is live and publicly accessible:
 
-MetaFetch is currently running locally but is designed for easy deployment on platforms such as Heroku or Render.
+🔗 **Live Demo**: [https://metafetch-zeta.vercel.app](https://metafetch-zeta.vercel.app)  
+🔧 **Backend API**: [https://metafetch-backend.onrender.com](https://metafetch-backend.onrender.com)
 
-- Backend and frontend are fully separated
-- Environment-ready structure with clear start scripts
-- Easily adaptable for cloud hosting with minor config adjustments
+- Frontend deployed on [Vercel](https://vercel.com) using React + Material UI
+- Backend deployed on [Render](https://render.com) using Node.js + Express
+- Both are fully decoupled, cloud-hosted, and use environment variables for communication
+
   
 ---
   
