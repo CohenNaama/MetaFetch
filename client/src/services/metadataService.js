@@ -18,10 +18,10 @@
 
 import axios from "axios";
 
-
+const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 const fetchMetadata = async (urls) => {
-  const response = await axios.post('http://localhost:5000/fetch-metadata', { urls });
+  const response = await axios.post(`${baseURL}/fetch-metadata`, { urls });
   return response.data;
 };
 
