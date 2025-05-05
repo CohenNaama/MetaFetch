@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Grid, Typography, Container } from '@mui/material';
-import axios from 'axios';
-
+import fetchMetadata from '../services/metadataService';
 import FormInput from './FormInput';
 import MetadataCard from './MetadataCard';
 
@@ -46,8 +45,10 @@ const UrlForm = () => {
       const newUrls = urls.filter(url => !metadata.some(data => data.url === url.trim()) && url.trim() !== '');
 
       if (newUrls.length > 0) {
-        const response = await axios.post('http://localhost:5000/fetch-metadata', { urls: newUrls });
-        const newMetadata = response.data;
+        // const response = await axios.post('http://localhost:5000/fetch-metadata', { urls: newUrls });
+        // const newMetadata = response.data;
+        const newMetadata = await fetchMetadata(newUrls);
+
 
         // Append the new metadata to the existing metadata
         setMetadata((prevMetadata) => [...prevMetadata, ...newMetadata]);
